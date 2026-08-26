@@ -251,17 +251,6 @@ pharma-batch-quality-analytics/
 
 ---
 
-## How to Explore This Project
-
-1. Clone or download this repository.
-2. Open `workbook/Pharmaceutical_Batch_Analytics.xlsx` in Excel (2016 or later).
-3. Go to the **Dashboard** sheet.
-4. Use the **Strength** and **Size** slicers, and the **Analysis Period** timeline, to filter the view.
-5. Read the **Statistical Insights** and **EDA Insights** panels for the plain-language findings behind the charts.
-6. For the full statistical workflow and detailed write-up, see `report/Pharmaceutical_Batch_Analytics_Report.docx`.
-
----
-
 ## Data Source & Citation
 
 This project uses the dataset published in:
