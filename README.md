@@ -79,6 +79,7 @@ Both source files were cleaned entirely in Power Query, with every transformatio
 - **Discovered a cross-file duplication issue:** those same 6 columns turned out to be exact duplicates of columns already present in Laboratory.csv — except Laboratory's versions were complete while Process's were missing the final 18 batches. The redundant columns were removed in favor of the complete versions.
 
 **Merge:** joined on batch/code (Left Outer) → **`Fact_Batch`**, confirmed at exactly 1,005 rows with no duplication.
+
 <img width="455" height="320" alt="image" src="https://github.com/user-attachments/assets/748f7eea-69c1-491e-a789-3f5ed939ae1a" />
 
 ---
@@ -96,6 +97,7 @@ Fact_Batch (1,005 batch-level records: quality + process measurements)
 ```
 
 Relationship built and activated in Power Pivot's Diagram View.
+
 <img width="381" height="131" alt="image" src="https://github.com/user-attachments/assets/f87fabc6-9566-49fd-baf6-ed6cb35fbaf0" />
 
 ---
@@ -111,6 +113,7 @@ Relationship built and activated in Power Pivot's Diagram View.
 | Avg API Impurity | `AVERAGE(Fact_Batch[api_l_impurity])` |
 
 Validated with a test PivotTable (strength × all 5 measures) — the first early signal that 5MG consistently outperformed the other strengths.
+
 <img width="543" height="118" alt="image" src="https://github.com/user-attachments/assets/08473266-aa6d-4e6a-ad55-a21314312d40" />
 
 ---
@@ -129,6 +132,7 @@ Validated with a test PivotTable (strength × all 5 measures) — the first earl
 | SREL (production max) vs. Dissolution | 0.056 | Negligible |
 
 **Dissolution histogram:** a histogram of `dissolution_av` was built to check the shape and spread of the distribution before running ANOVA — mirroring the same distribution-check approach the original dataset's own authors used (they validated dissolution against a normal curve to compute a process-capability index). The distribution looked reasonably bell-shaped with no extreme outliers, supporting the use of ANOVA and t-tests downstream.
+
 <img width="640" height="346" alt="image" src="https://github.com/user-attachments/assets/3ba9d688-5e0e-4c15-bc9b-8fc3409313f4" />
 
 **Outlier scan:** the 11 worst-dissolution batches belonged **exclusively** to the 20M/40M strength groups — an early, strong signal that formulation strength, not raw material impurity, was the main driver of poor outcomes.
@@ -143,6 +147,7 @@ Does strength affect dissolution?
 | F | p-value | F crit | Conclusion |
 |---:|---:|---:|---|
 | 181.663 | 4.97E-94 | 2.614 | **Highly significant** |
+
 <img width="596" height="267" alt="image" src="https://github.com/user-attachments/assets/8f3efdb0-7f34-4e26-9c51-46672f9cb8c1" />
 
 
@@ -158,6 +163,7 @@ Does strength affect dissolution?
 | 20M vs 40M | 0.00083 | ✅ (weakest) |
 
 **Confirmed order:** 5MG (93.72%) > 10M (91.27%) > 20M (89.18%) > 40M (88.15%)
+
 <img width="443" height="245" alt="image" src="https://github.com/user-attachments/assets/a98c9c2c-c922-484d-91aa-b8f47d6d62ef" />
 
 ### Simple Regression
@@ -177,6 +183,7 @@ Adding strength (as dummy variables, 40M baseline) alongside compression force a
 | **Compression force** | **−0.0145** | **0.837** | **❌** |
 
 **R² rose from 0.132 → 0.356.** Compression force's coefficient collapsed to statistically insignificant once strength was controlled for — its apparent effect in the simple model was **confounded with strength**, not an independent cause. This is the project's central analytical finding.
+
 <img width="624" height="306" alt="image" src="https://github.com/user-attachments/assets/bedd74cd-c17b-49d4-a1f1-68bc754c9f65" />
 
 ### Weekend vs. Weekday — Abandoned as Invalid
