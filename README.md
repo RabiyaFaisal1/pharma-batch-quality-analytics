@@ -133,7 +133,8 @@ Validated with a test PivotTable (strength × all 5 measures) — the first earl
 
 **Dissolution histogram:** a histogram of `dissolution_av` was built to check the shape and spread of the distribution before running ANOVA — mirroring the same distribution-check approach the original dataset's own authors used (they validated dissolution against a normal curve to compute a process-capability index). The distribution looked reasonably bell-shaped with no extreme outliers, supporting the use of ANOVA and t-tests downstream.
 
-<img width="640" height="346" alt="image" src="https://github.com/user-attachments/assets/3ba9d688-5e0e-4c15-bc9b-8fc3409313f4" />
+<img width="601" height="267" alt="image" src="https://github.com/user-attachments/assets/eb6d38f2-951c-4945-a6fd-19defbea68a1" />
+
 
 **Outlier scan:** the 11 worst-dissolution batches belonged **exclusively** to the 20M/40M strength groups — an early, strong signal that formulation strength, not raw material impurity, was the main driver of poor outcomes.
 
