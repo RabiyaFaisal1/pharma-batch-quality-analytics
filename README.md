@@ -4,7 +4,8 @@
 
 An end-to-end Excel analytics project built on 1,005 real pharmaceutical production batches — from raw CSV cleaning through statistical hypothesis testing to a fully interactive, slicer-driven dashboard.
 
-<img width="1343" height="681" alt="image" src="https://github.com/user-attachments/assets/ab7fb5ea-67cc-4f06-ba1d-48bfc9d43edd" />
+<img width="1343" height="680" alt="image" src="https://github.com/user-attachments/assets/4398ee99-072f-49af-a11a-2de57925b405" />
+
 ---
 
 ## 📌 TL;DR
